@@ -1221,7 +1221,7 @@ Convert-PhysicsUnit [-Value] <double> [-FromUnit] <string>
 
 ### SYNTAX 
 ```PowerShell 
-ConvertTo-HashTable [-InputObject] <Object[]>
+ConvertTo-HashTable [-InputObject] <Object>
     [<CommonParameters>] 
 ``` 
 
@@ -1230,7 +1230,7 @@ ConvertTo-HashTable [-InputObject] <Object[]>
  
 ``` 
 ```yaml 
-    -InputObject <Object[]>  
+    -InputObject <Object>  
         The PSCustomObject to convert into a HashTable  
         Required?                    true  
         Position?                    0  
@@ -2261,7 +2261,7 @@ Receive-RealTimeSpeechToText [-ModelFileDirectoryPath
 
 ### SYNTAX 
 ```PowerShell 
-Remove-JSONComments [-Json] <string[]> [<CommonParameters>] 
+Remove-JSONComments [-Json] <string> [<CommonParameters>] 
 ``` 
 
 ### PARAMETERS 
@@ -2269,11 +2269,11 @@ Remove-JSONComments [-Json] <string[]> [<CommonParameters>]
  
 ``` 
 ```yaml 
-    -Json <string[]>  
+    -Json <string>  
         JSON content to process as string array  
         Required?                    true  
         Position?                    0  
-        Accept pipeline input?       true (ByValue)  
+        Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      None  
         Dynamic?                     false  
@@ -5090,7 +5090,7 @@ sidebyside [<CommonParameters>]
 
 ### SYNTAX 
 ```PowerShell 
-ConvertTo-HashTable [-InputObject] <Object[]>
+ConvertTo-HashTable [-InputObject] <Object>
     [<CommonParameters>] 
 ``` 
 
@@ -5099,7 +5099,7 @@ ConvertTo-HashTable [-InputObject] <Object[]>
  
 ``` 
 ```yaml 
-    -InputObject <Object[]>  
+    -InputObject <Object>  
         The PSCustomObject to convert into a HashTable  
         Required?                    true  
         Position?                    0  
@@ -6130,7 +6130,7 @@ Receive-RealTimeSpeechToText [-ModelFileDirectoryPath
 
 ### SYNTAX 
 ```PowerShell 
-Remove-JSONComments [-Json] <string[]> [<CommonParameters>] 
+Remove-JSONComments [-Json] <string> [<CommonParameters>] 
 ``` 
 
 ### PARAMETERS 
@@ -6138,11 +6138,11 @@ Remove-JSONComments [-Json] <string[]> [<CommonParameters>]
  
 ``` 
 ```yaml 
-    -Json <string[]>  
+    -Json <string>  
         JSON content to process as string array  
         Required?                    true  
         Position?                    0  
-        Accept pipeline input?       true (ByValue)  
+        Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      None  
         Dynamic?                     false  

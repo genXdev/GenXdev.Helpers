@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Helpers
 // Original cmdlet filename  : Get-SpeechToText.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,14 +21,9 @@
 
 
 
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
 using System.Management;
 using System.Management.Automation;
-using System.Threading;
-using System.Threading.Tasks;
 using Whisper.net;
 using Whisper.net.Ggml;
 
@@ -314,7 +309,7 @@ namespace GenXdev.Helpers
             Mandatory = false,
             HelpMessage = "Temperature for speech detection")]
         [ValidateRange(0, 1)]
-        public float? Temperature { get; set; }
+        public float? Temperature { get; set; } = 0.7f;
 
         /// <summary>
         /// Temperature increment for fallback attempts
@@ -332,7 +327,7 @@ namespace GenXdev.Helpers
             Mandatory = false,
             HelpMessage = "No speech threshold")]
         [ValidateRange(0, 1)]
-        public float? NoSpeechThreshold { get; set; }
+        public float? NoSpeechThreshold { get; set; } = 0.1f;
 
         /// <summary>
         /// Optional text prompt to guide the model's transcription style

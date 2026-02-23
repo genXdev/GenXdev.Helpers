@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Helpers
 // Original cmdlet filename  : Remove-JSONComments.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -90,10 +90,9 @@ namespace GenXdev.Helpers
         [Parameter(
             Mandatory = true,
             Position = 0,
-            ValueFromPipeline = true,
             HelpMessage = "JSON content to process as string array"
         )]
-        public string[] Json { get; set; }
+        public string Json { get; set; }
 
         /// <summary>
         /// Begin processing - initialization logic

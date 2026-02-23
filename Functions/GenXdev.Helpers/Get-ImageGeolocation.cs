@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Helpers
 // Original cmdlet filename  : Get-ImageGeolocation.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,11 +21,7 @@
 
 
 
-using System;
 using System.Collections;
-using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Management.Automation;
 
 namespace GenXdev.Helpers

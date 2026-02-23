@@ -75,6 +75,18 @@
             $result.Name | Pester\Should -Be 'Test'
         }
     }
+
+    Pester\Context 'Cloning' {
+
+        Pester\It 'Should accept pipeline input' {
+
+            $a = @{'mies' = @(123, 345) }
+            $c = $a | GenXdev.Helpers\ConvertTo-HashTable
+            $c.getType().FullName | Pester\Should -Be "System.Collections.Hashtable"
+            $c.mies[1] = 678;
+            $a.mies[1] | Pester\Should -Be 345
+        }
+    }
 }
 
 ###############################################################################

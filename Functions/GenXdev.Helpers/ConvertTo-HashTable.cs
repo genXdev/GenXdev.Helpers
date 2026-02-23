@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Helpers
 // Original cmdlet filename  : ConvertTo-HashTable.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,10 +21,7 @@
 
 
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Management.Automation;
 
 namespace GenXdev.Helpers
@@ -80,14 +77,14 @@ namespace GenXdev.Helpers
             HelpMessage = "The PSCustomObject to convert into a HashTable"
         )]
         [ValidateNotNull]
-        public object[] InputObject { get; set; }
+        public object InputObject { get; set; }
 
         /// <summary>
         /// Begin processing - initialization logic
         /// </summary>
         protected override void BeginProcessing()
         {
-            WriteVerbose("Starting PSCustomObject to HashTable conversion");
+            //WriteVerbose("Starting PSCustomObject to HashTable conversion");
         }
 
         /// <summary>
@@ -95,11 +92,7 @@ namespace GenXdev.Helpers
         /// </summary>
         protected override void ProcessRecord()
         {
-            foreach (var item in InputObject)
-            {
-                var result = ConvertToHashTable(item);
-                WriteObject(result);
-            }
+            WriteObject(ConvertToHashTable(InputObject));
         }
 
         /// <summary>
@@ -107,12 +100,12 @@ namespace GenXdev.Helpers
         /// </summary>
         protected override void EndProcessing()
         {
-            WriteVerbose("Completed HashTable conversion");
+            //WriteVerbose("Completed HashTable conversion");
         }
 
         private object ConvertToHashTable(object input)
         {
-            // return empty hashtable if input is null
+
             if (input == null)
             {
                 return new Hashtable(StringComparer.OrdinalIgnoreCase);
@@ -122,6 +115,25 @@ namespace GenXdev.Helpers
             if (input is System.ValueType || input is string)
             {
                 return input;
+            }
+
+            // handle Hashtable
+            if (input is System.Collections.Hashtable || (input is PSObject pso && pso.BaseObject is Hashtable))
+            {
+                // return empty hashtable if input is null
+                if (input is PSObject psObject)
+                {
+                    input = psObject.BaseObject;
+                }
+
+                Hashtable hashTable = (Hashtable)input;
+
+                System.Collections.Hashtable newTable = (System.Collections.Hashtable ) hashTable.Clone();
+                foreach (var key in hashTable.Keys)
+                {
+                    newTable[key] = ConvertToHashTable(newTable[key]);
+                }
+                return newTable;
             }
 
             // handle PSCustomObject
