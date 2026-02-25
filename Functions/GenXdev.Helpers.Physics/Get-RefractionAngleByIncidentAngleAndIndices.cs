@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Helpers.Physics
 // Original cmdlet filename  : Get-RefractionAngleByIncidentAngleAndIndices.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.3.2026
+// Version                   : 3.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -26,7 +26,7 @@
 Part of PowerShell module : GenXdev.Helpers.Physics
 Original cmdlet filename  : Get-RefractionAngleByIncidentAngleAndIndices.cs
 Original author           : René Vaessen / GenXdev
-Version                   : 2.3.2026
+Version                   : 3.3.2026
 ###############################################################################
 Copyright (c)  René Vaessen / GenXdev
 
